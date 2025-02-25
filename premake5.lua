@@ -1,11 +1,20 @@
-workspace "RaylibTemplate"
+--Change these values
+workspacename = "BasicTemplate"
+projectname = "BasicTemplate"
+
+--TODO: Add functionality to auto-rename the current folder to the workspacename?
+
+--For use with the first execution of GenerateProjects.bat
+os.rename("BasicTemplate", projectname)
+
+workspace (workspacename)
 	architecture "x86"
 	configurations { "Debug", "Release"}
 	
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"	
 	
-project "RaylibTemplate"
-	location "RaylibTemplate"
+project (projectname)
+	location (projectname)
 	kind "ConsoleApp"
 	language "C++"
 	
@@ -20,14 +29,14 @@ project "RaylibTemplate"
 	
 	includedirs
 	{
-		"vendor/Raylib/include"
+		
 	}
 	
-	libdirs { "vendor/Raylib/lib" }
+	libdirs {  }
 	
-	links { "raylib.lib", "Winmm.lib" }
+	links {  }
 	
-	cppdialect "C++17"
+	cppdialect "C++20"
 	staticruntime "Off"
 	systemversion "latest"
 	
